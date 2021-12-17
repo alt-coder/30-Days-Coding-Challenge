@@ -11,18 +11,18 @@ bool canFit(vector<vector<int>> &board, int r, int c, int num)
     }
     for (int i = 0; i < 9; i++)
     {
-        if (board[c][i] == num)
+        if (board[i][c] == num)
             return false;
     }
     r = r / 3;
     c = c / 3;
     r = 3 * r;
     c = 3 * c;
-    for (int i = r; i < r + 3; i++)
+    for (int i = 0; i <  3; i++)
     {
-        for (int j = c; j < c + 3; j++)
+        for (int j = 0; j <  3; j++)
         {
-            if (board[i][j] == num)
+            if (board[i+r][j+c] == num)
                 return false;
         }
     }
@@ -55,15 +55,15 @@ void sudoku(vector<vector<int>> &board)
                         board[r][c] = 0;
                     }
                 }
-                // print(board);
-                // cout<<"\n";
                 return;
             }
         }
     }
     print(board);
     int v;
-    cin >> v;
+    cout << "press 1 to look for more solution ";
+    cin >>v;
+    if (!v) exit(0);
 }
 
 int main(int argc, char const *argv[])
@@ -90,9 +90,9 @@ int main(int argc, char const *argv[])
   {7,0,0,0,2,0,0,0,6},
   {0,6,0,0,0,0,2,8,0},
   {0,0,0,4,1,9,0,0,5},
-  {0,0,0,0,8,0,0,7,9},
+  {0,0,0,0,8,0,0,0,0},
 };
-    cout << canFit(grid,4,4,5);
+    cout << canFit(grid,0,3,6);
     sudoku(grid);
 
     return 0;
