@@ -1,6 +1,6 @@
 def find(num,n):
     low=0.01
-    high=num
+    high=num/n if num>1 and n>2 else num
     
     while (high-low >=0.001): #limit the precision
         test = low+((high-low)/2)
@@ -14,4 +14,4 @@ def find(num,n):
         else:
             return test
     return test+0.0005
-print(find(53,3))
+print(find(3,2))
