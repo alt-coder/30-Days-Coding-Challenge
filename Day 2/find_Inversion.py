@@ -16,7 +16,7 @@ def merge(arr1,arr2,ct):
     i=j=0
     while(i< len(arr1) or j <len(arr2)):
         if i>= len(arr1):
-            res.append(arr2[j])
+            res.append(arr2[j]) 
             j+=1
         elif j >= len(arr2):
             res.append(arr1[i])
