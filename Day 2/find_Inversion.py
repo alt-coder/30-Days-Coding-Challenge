@@ -44,4 +44,4 @@ def countinversion(arr):
     mergesort(arr,ct)
     return ct[0]
 
-print(countinversion([8,4,2,1]))
+print(countinversion([2,3,1]))
