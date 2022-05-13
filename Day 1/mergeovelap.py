@@ -11,5 +11,24 @@ def meroverlap(arr):
             ans.append(st.pop(0))       #else append the interval as it is
     return ans
 
+def merge(self, intervals: list[list[int]]) -> list[list[int]]:
+        intervals.sort(key= lambda x :x[0]) #sort the interval as per start time
+        ans=[intervals[0]]
+        for num in intervals[1:]:
+            if(num[0]<=ans[-1][1]):  #condition of being merged
+                ans[-1][1]=max(num[1],ans[-1][1]) #only the last end time needs to be updated after merging
+            else: ans.append(num)
+        return ans
 
+# no extra space
+def merge(self, intervals: list[list[int]]) -> list[list[int]]:
+    intervals.sort(key= lambda x :x[0])
+    i=0
+    for num in intervals[1:]:
+        if(num[0]<=intervals[i][1]):
+            intervals[i][1]=max(num[1],intervals[i][1])
+        else:
+            i+=1
+            intervals[i]=num
+    return intervals[:i+1]
     
